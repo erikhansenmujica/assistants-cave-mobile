@@ -10,8 +10,13 @@ function CoursesContainer(props) {
     props
       .fetchCourse(JSON.stringify(props.navigation.state.params.courseId))
       .then(() => setLoad(true));
-
-  return <SelectedCourse course={props.course} />;
+  const goSomewhere = (where, params) =>
+    props.navigation.navigate(where, params);
+  return load ? (
+    <SelectedCourse course={props.course} goSomewhere={goSomewhere} />
+  ) : (
+    <Loading />
+  );
 }
 const mapStateToProps = state => ({
   course: state.courses.selected

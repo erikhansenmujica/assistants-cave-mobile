@@ -5,7 +5,12 @@ export default function(props) {
     <View style={styles.container}>
       <Text style={styles.subtitle}>{props.course.name}</Text>
 
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() =>
+          props.goSomewhere("Students", { courseId: props.course.id })
+        }
+      >
         <Text style={styles.buttonContent}> Students </Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.button}>

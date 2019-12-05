@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { createCourse } from "../../../store/actions/courses";
 import NewCourse from "./NewCourse";
-function LoginContainer(props) {
+function NewCourseContainer(props) {
   const [name, onChangeName] = useState("New course name");
   const onPress = () =>
     props
@@ -19,4 +19,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   null,
   mapDispatchToProps
-)(LoginContainer);
+)(NewCourseContainer);

@@ -3,15 +3,18 @@ import Login from "./Login";
 import { connect } from "react-redux";
 import Welcome from "./Welcome";
 import { checkIfLogged } from "../store/actions/user";
-import { Text } from "react-native";
+import { View } from "react-native";
 import { createStackNavigator } from "react-navigation-stack";
 import { createAppContainer } from "react-navigation";
 import Courses from "./Courses";
+import Students from "./Students";
 import { MaterialCommunityIcons, Entypo, Foundation } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { logout } from "../store/actions/user";
 import NewCourse from "./Courses/NewCourse";
+import NewStudent from "./Students/NewStudent";
 import SelectedCourse from "./Courses/SelectedCourse";
+import Loading from "./Loading";
 function Main(props) {
   [load, setLoad] = useState(false);
   useEffect(() => {
@@ -28,7 +31,9 @@ function Main(props) {
       <Login />
     )
   ) : (
-    <Text>Loading...</Text>
+    <View style={{ height: 800, backgroundColor: "black" }}>
+      <Loading />
+    </View>
   );
 }
 const mapStateToProps = state => ({
@@ -46,7 +51,9 @@ const AppNavigator = createStackNavigator(
     Home: Welcome,
     Courses,
     NewCourse,
-    SelectedCourse
+    SelectedCourse,
+    Students,
+    NewStudent
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({

@@ -7,8 +7,8 @@ const loggerMiddleware = createLogger();
 const store = createStore(
   reducers,
   applyMiddleware(
-    thunkMiddleware, // nos permite despachar funciones
-    loggerMiddleware // buen middleware que registra las acciones
+    thunkMiddleware // nos permite despachar funciones
+    //loggerMiddleware // buen middleware que registra las acciones
   )
 );
 

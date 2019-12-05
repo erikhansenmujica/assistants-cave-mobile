@@ -1,7 +1,7 @@
 import axios from "axios";
 import { SET_COURSES, SET_COURSE } from "../../constants";
 
-const setCourses = courses => ({
+export const setCourses = courses => ({
   type: SET_COURSES,
   courses
 });
