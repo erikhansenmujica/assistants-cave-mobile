@@ -15,21 +15,25 @@ export default function(props) {
       <View style={styles.studentsContainer}>
         <ScrollView>
           <View style={styles.studentsScrollContainer}>
-            {props.students.map(student => (
-              <TouchableOpacity style={styles.cards} key={student.id}>
-                <Text style={styles.cardsContent}>{student.name}</Text>
-                <Image
-                  source={{
-                    uri: `data:image/gif;base64,${student.picture &&
-                      student.picture}`
-                  }}
-                  style={{
-                    height: 160,
-                    objectFit: "contain"
-                  }}
-                />
-              </TouchableOpacity>
-            ))}
+            {props.students[0] ? (
+              props.students.map(student => (
+                <TouchableOpacity style={styles.cards} key={student.id}>
+                  <Text style={styles.cardsContent}>{student.name}</Text>
+                  <Image
+                    source={{
+                      uri: `data:image/gif;base64,${student.picture &&
+                        student.picture}`
+                    }}
+                    style={{
+                      height: 160,
+                      objectFit: "contain"
+                    }}
+                  />
+                </TouchableOpacity>
+              ))
+            ) : (
+              <Text style={styles.cardsContent}>There's no students</Text>
+            )}
           </View>
         </ScrollView>
       </View>

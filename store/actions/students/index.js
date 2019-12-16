@@ -13,7 +13,7 @@ const setStudent = student => ({
 export const fetchStudents = courseId => dispatch =>
   axios
     .get(`http://10.100.0.133:3000/courses/students/${courseId}`)
-    .then(res => dispatch(setStudents(res.data)))
+    .then(res => dispatch(setStudents(res.data.length ? res.data : [false])))
     .catch(console.log);
 
 export const fetchStudent = id => dispatch =>

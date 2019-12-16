@@ -8,9 +8,7 @@ import Loading from "../../Loading";
 
 function NewStudentContainer(props) {
   const [name, onChangeName] = useState("Student name");
-  const [gitUsername, onChangeGitusername] = useState(
-    "Student Github username"
-  );
+  const [gitUsername, onChangeGitusername] = useState("Github username");
   const [loading, onLoadingChange] = useState(false);
   const [picture, onChangePicture] = useState("Student picture");
   const onPress = () => {
